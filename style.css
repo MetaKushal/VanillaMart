@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+
+:root {
+  --bg-color: #FAFAFA;       
+  --text-main: #2D3748;      
+  --text-muted: #718096;
+  --primary: #A7F3D0;        
+  --primary-hover: #6EE7B7;  
+  --card-bg: #FFFFFF;
+  --border: #E2E8F0;
+}
+
+body { background: var(--bg-color); color: var(--text-main); }
+
+/* --- VIEW CONTROLLER (The SPA Magic) --- */
+.view { display: none; }
+.view.active { display: block; animation: fadeIn 0.3s ease; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Navbar */
+.navbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 15px 40px; background: var(--card-bg); border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+}
+.logo { font-size: 1.5rem; font-weight: 700; color: #064E3B; }
+#search-bar { padding: 10px 20px; width: 300px; border-radius: 8px; border: 1px solid var(--border); outline: none; background: var(--bg-color); }
+.cart-btn { padding: 10px 20px; background: var(--primary); border: none; border-radius: 8px; font-weight: 600; cursor: pointer; color: #064E3B; transition: 0.2s; }
+.cart-btn:hover { background: var(--primary-hover); }
+
+/* Main Storefront Layout */
+.main-layout { display: flex; max-width: 1200px; margin: 30px auto; gap: 30px; padding: 0 20px; }
+
+/* Sidebar */
+.sidebar { width: 250px; background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border); height: fit-content; }
+.sidebar h3 { margin-bottom: 15px; font-size: 1.1rem; }
+.sidebar ul { list-style: none; }
+.sidebar li { padding: 10px; margin-bottom: 5px; border-radius: 6px; cursor: pointer; color: var(--text-muted); }
+.sidebar li:hover { background: var(--bg-color); }
+.sidebar li.active { background: var(--primary); color: #064E3B; font-weight: 600; }
+
+/* Product Grid */
+.product-area { flex: 1; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+
+.product-card { background: var(--card-bg); padding: 15px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.2s; }
+.product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
+.product-img { font-size: 4rem; margin-bottom: 15px; }
+.product-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 5px; height: 40px; }
+.product-price { font-weight: 700; color: #064E3B; margin-bottom: 15px; }
+.add-btn { width: 100%; padding: 10px; background: var(--bg-color); border: 1px solid var(--primary); color: #064E3B; border-radius: 6px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+.add-btn:hover { background: var(--primary); }
+
+/* --- CART LAYOUT --- */
+.cart-container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+.cart-layout { display: flex; gap: 40px; align-items: flex-start; }
+
+/* Left Side: Items */
+.cart-items-section { flex: 2; background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--border); }
+.cart-items-section h2 { margin-bottom: 10px; color: var(--text-main); }
+.cart-headers { display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-muted); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 10px;}
+
+/* Right Side: Bill Details */
+.bill-summary { flex: 1; background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--border); position: sticky; top: 100px; }
+.bill-summary h3 { margin-bottom: 20px; font-size: 1.2rem; }
+
+.math-row { display: flex; justify-content: space-between; margin-bottom: 15px; color: var(--text-muted); }
+.math-row.total-row { font-weight: 700; color: var(--text-main); font-size: 1.2rem; border-top: 1px dashed var(--border); padding-top: 15px; margin-top: 10px; }
+
+.checkout-btn { width: 100%; padding: 15px; background: var(--primary); color: #064E3B; border: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; margin-top: 20px; cursor: pointer; transition: 0.2s; }
+.checkout-btn:hover { background: var(--primary-hover); }
+
+.back-btn { background: transparent; border: none; color: var(--text-muted); font-weight: 600; cursor: pointer; font-size: 1rem; }
+.back-btn:hover { color: var(--text-main); }

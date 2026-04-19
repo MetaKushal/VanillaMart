@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Mart - 10 Min Delivery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="store-view" class="view active">
+        <header class="navbar">
+            <div class="logo">⚡ Quick Mart</div>
+            <div class="search-container">
+                <input type="text" id="search-bar" placeholder="Search groceries, snacks...">
+            </div>
+            <button id="cart-nav-btn" class="cart-btn">🛒 Cart (<span id="cart-count">0</span>)</button>
+        </header>
+
+        <div class="main-layout">
+            <aside class="sidebar">
+                <h3>Categories</h3>
+                <ul id="category-list">
+                    <li class="active" data-category="All">All Items</li>
+                    <li data-category="Dairy">Dairy & Bread</li>
+                    <li data-category="Snacks">Snacks & Munchies</li>
+                    <li data-category="Produce">Fresh Produce</li>
+                    <li data-category="Beverages">Cold Beverages</li>
+                </ul>
+            </aside>
+
+            <main class="product-area">
+                <div class="product-grid" id="product-grid">
+                    </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="cart-view" class="view hidden">
+        <header class="navbar">
+            <button id="back-to-store" class="back-btn">← Back to Store</button>
+            <div class="logo">⚡ Quick Mart Checkout</div>
+            <div></div> </header>
+
+        <main class="cart-container">
+            <div class="cart-layout">
+                
+                <div class="cart-items-section">
+                    <h2>Your Items</h2>
+                    <div class="cart-headers">
+                        <span>Item</span>
+                        <span>Total</span>
+                    </div>
+                    <div id="cart-items-list"></div>
+                </div>
+
+                <aside class="bill-summary">
+                    <h3>Bill Summary</h3>
+                    <div class="math-row">
+                        <span>Item Total</span>
+                        <span id="subtotal">₹0.00</span>
+                    </div>
+                    <div class="math-row">
+                        <span>Handling fee (GST 5%)</span>
+                        <span id="tax">₹0.00</span>
+                    </div>
+                    
+                    <div class="math-row total-row">
+                        <span>Total to Pay</span>
+                        <span id="total">₹0.00</span>
+                    </div>
+
+                    <button id="checkout-btn" class="checkout-btn">Proceed to Pay</button>
+                </aside>
+                
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
