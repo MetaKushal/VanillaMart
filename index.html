@@ -17,22 +17,33 @@
             <button id="cart-nav-btn" class="cart-btn">🛒 Cart (<span id="cart-count">0</span>)</button>
         </header>
 
-        <div class="main-layout">
-            <aside class="sidebar">
-                <h3>Categories</h3>
-                <ul id="category-list">
-                    <li class="active" data-category="All">All Items</li>
-                    <li data-category="Dairy">Dairy & Bread</li>
-                    <li data-category="Snacks">Snacks & Munchies</li>
-                    <li data-category="Produce">Fresh Produce</li>
-                    <li data-category="Beverages">Cold Beverages</li>
-                </ul>
-            </aside>
+       <div class="main-layout">
+            <main class="product-area" style="width: 100%;">
+                
+                <!-- ✨ NEW: Added the sorting menu back! -->
+                <div class="controls-bar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="font-size: 1.2rem;">All Categories</h2>
+                    <select id="sort-dropdown" style="padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); outline: none;">
+                        <option value="default">Sort By</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name-a-z">Name: A to Z</option>
+                    </select>
+                </div>
 
-            <main class="product-area">
-                <div class="product-grid" id="product-grid">
-                    </div>
+                <div id="product-grid">
+                    <!-- JS will inject the horizontal rows here -->
+                </div>
             </main>
+        </div>
+
+        <!-- ✨ NEW: iOS Style Bottom Search Overlay -->
+        <div id="mobile-search-overlay" class="hidden">
+            <div id="search-results-container"></div>
+            <div class="search-input-wrapper">
+                <input type="text" id="mobile-search-input" placeholder="Search groceries, snacks...">
+                <button id="close-search">✖</button>
+            </div>
         </div>
     </div>
 
@@ -76,6 +87,45 @@
             </div>
         </main>
     </div>
+
+    <!-- ============================================== -->
+    <!-- ✨ NEW: BOTTOM APP NAVIGATION (Mobile Only)    -->
+    <!-- ============================================== -->
+    <nav class="bottom-nav">
+        <div class="nav-item active" id="nav-home">
+            <span class="nav-icon">🏠</span>
+            <span>Home</span>
+        </div>
+        <div class="nav-item" id="nav-categories">
+            <span class="nav-icon">🗂️</span>
+            <span>Categories</span>
+        </div>
+        <div class="nav-item" id="nav-cart-btn">
+            <span class="nav-icon">🛒</span>
+            <span>Cart (<span id="mobile-cart-count">0</span>)</span>
+        </div>
+        <nav class="bottom-nav">
+        <div class="nav-item active" id="nav-home">
+            <span class="nav-icon">🏠</span>
+            <span>Home</span>
+        </div>
+        
+        <!-- ✨ NEW: Search Button -->
+        <div class="nav-item" id="nav-search">
+            <span class="nav-icon">🔍</span>
+            <span>Search</span>
+        </div>
+
+        <div class="nav-item" id="nav-cart-btn">
+            <span class="nav-icon">🛒</span>
+            <span>Cart (<span id="mobile-cart-count">0</span>)</span>
+        </div>
+    </nav>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
     <script src="script.js"></script>
 </body>
