@@ -8,6 +8,9 @@
 </head>
 <body>
 
+    <!-- ============================================== -->
+    <!-- 1. STOREFRONT VIEW                             -->
+    <!-- ============================================== -->
     <div id="store-view" class="view active">
         <header class="navbar">
             <div class="logo">⚡ Quick Mart</div>
@@ -18,12 +21,11 @@
         </header>
 
        <div class="main-layout">
-            <main class="product-area" style="width: 100%;">
+            <main class="product-area">
                 
-                <!-- ✨ NEW: Added the sorting menu back! -->
-                <div class="controls-bar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                    <h2 style="font-size: 1.2rem;">All Categories</h2>
-                    <select id="sort-dropdown" style="padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); outline: none;">
+                <div class="controls-bar">
+                    <h2>All Categories</h2>
+                    <select id="sort-dropdown">
                         <option value="default">Sort By</option>
                         <option value="price-low">Price: Low to High</option>
                         <option value="price-high">Price: High to Low</option>
@@ -37,7 +39,7 @@
             </main>
         </div>
 
-        <!-- ✨ NEW: iOS Style Bottom Search Overlay -->
+        <!-- iOS Style Bottom Search Overlay -->
         <div id="mobile-search-overlay" class="hidden">
             <div id="search-results-container"></div>
             <div class="search-input-wrapper">
@@ -47,11 +49,15 @@
         </div>
     </div>
 
+    <!-- ============================================== -->
+    <!-- 2. CART CHECKOUT VIEW                          -->
+    <!-- ============================================== -->
     <div id="cart-view" class="view hidden">
         <header class="navbar">
             <button id="back-to-store" class="back-btn">← Back to Store</button>
             <div class="logo">⚡ Quick Mart Checkout</div>
-            <div></div> </header>
+            <div></div> 
+        </header>
 
         <main class="cart-container">
             <div class="cart-layout">
@@ -75,12 +81,10 @@
                         <span>Handling fee (GST 5%)</span>
                         <span id="tax">₹0.00</span>
                     </div>
-                    
                     <div class="math-row total-row">
                         <span>Total to Pay</span>
                         <span id="total">₹0.00</span>
                     </div>
-
                     <button id="checkout-btn" class="checkout-btn">Proceed to Pay</button>
                 </aside>
                 
@@ -89,7 +93,7 @@
     </div>
 
     <!-- ============================================== -->
-    <!-- ✨ NEW: BOTTOM APP NAVIGATION (Mobile Only)    -->
+    <!-- 3. MOBILE BOTTOM NAVIGATION                    -->
     <!-- ============================================== -->
     <nav class="bottom-nav">
         <div class="nav-item active" id="nav-home">
@@ -100,32 +104,15 @@
             <span class="nav-icon">🗂️</span>
             <span>Categories</span>
         </div>
-        <div class="nav-item" id="nav-cart-btn">
-            <span class="nav-icon">🛒</span>
-            <span>Cart (<span id="mobile-cart-count">0</span>)</span>
-        </div>
-        <nav class="bottom-nav">
-        <div class="nav-item active" id="nav-home">
-            <span class="nav-icon">🏠</span>
-            <span>Home</span>
-        </div>
-        
-        <!-- ✨ NEW: Search Button -->
         <div class="nav-item" id="nav-search">
             <span class="nav-icon">🔍</span>
             <span>Search</span>
         </div>
-
         <div class="nav-item" id="nav-cart-btn">
             <span class="nav-icon">🛒</span>
             <span>Cart (<span id="mobile-cart-count">0</span>)</span>
         </div>
     </nav>
-    </nav>
-
-    <script src="script.js"></script>
-</body>
-</html>
 
     <script src="script.js"></script>
 </body>
