@@ -116,9 +116,10 @@ body {
     width: 100%;
 }
 
+/* --- PRODUCT CARDS --- */
 .product-card { 
     background: var(--card-bg); 
-    padding: 15px; 
+    padding: 12px; /* Tighter padding for phones */
     border-radius: 12px; 
     border: 1px solid var(--border); 
     display: flex; 
@@ -126,6 +127,7 @@ body {
     align-items: center; 
     text-align: center; 
     transition: transform 0.2s; 
+    height: 100%; /* ✨ THE FIX: Makes all cards in a row the same height */
 }
 
 .product-card:hover { 
@@ -133,24 +135,34 @@ body {
     box-shadow: 0 10px 15px rgba(0,0,0,0.05); 
 }
 
-.product-img { 
-    font-size: 4rem; 
-    margin-bottom: 15px; 
+/* --- THE IMAGE FIX --- */
+.product-img-tag {
+    width: 100%; 
+    height: 130px; /* Fixed height for all images */
+    object-fit: cover; /* Crops the image so it never squishes */
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background-color: var(--bg-color); 
 }
 
+/* --- THE TEXT FIX --- */
 .product-title { 
-    font-size: 0.95rem; 
+    font-size: 0.9rem; 
     font-weight: 600; 
     margin-bottom: 5px; 
-    height: 40px; 
+    height: 38px; /* Room for exactly 2 lines of text */
+    overflow: hidden; /* Hides any extra-long text */
+    width: 100%;
 }
 
 .product-price { 
     font-weight: 700; 
     color: #064E3B; 
     margin-bottom: 15px; 
+    width: 100%;
 }
 
+/* --- THE BUTTON FIX --- */
 .add-btn { 
     width: 100%; 
     padding: 10px; 
@@ -161,6 +173,7 @@ body {
     font-weight: 600; 
     cursor: pointer; 
     transition: 0.2s; 
+    margin-top: auto; /* ✨ THE MAGIC: Forces button to the absolute bottom */
 }
 
 .add-btn:hover { 
