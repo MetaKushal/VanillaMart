@@ -31,7 +31,8 @@ const products = [
     { id: 20, name: "Bisleri Water (1L)", price: 20, category: "Beverages", image: "https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=200&q=80" }
 ];
 
-let cart = [];
+// Check browser memory for a saved cart. If empty, start a new array.
+let cart = JSON.parse(localStorage.getItem("quickMartCart")) || [];
 
 // ==========================================
 // 2. DOM ELEMENTS
@@ -115,6 +116,7 @@ function addToCart(productId) {
         cart.push({ ...productToAdd, quantity: 1 });
     }
     updateCartCount();
+    saveCart();
 }
 
 function updateCartCount() {
@@ -132,6 +134,7 @@ function increaseQuantity(productId) {
         item.quantity += 1;
         updateCartCount();
         renderCart();
+        saveCart();
     }
 }
 
@@ -145,6 +148,7 @@ function decreaseQuantity(productId) {
         }
         updateCartCount();
         renderCart();
+        saveCart();
     }
 }
 
@@ -186,6 +190,10 @@ function renderCart() {
     });
 
     calculateTotals();
+}
+// ✨ NEW: Saves the current cart to the browser's memory
+function saveCart() {
+    localStorage.setItem("quickMartCart", JSON.stringify(cart));
 }
 
 function calculateTotals() {
@@ -348,3 +356,4 @@ if (searchInput) {
 // 7. KICKOFF
 // ==========================================
 renderProducts();
+updateCartCount();
