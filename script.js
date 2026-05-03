@@ -267,6 +267,10 @@ if (backToStoreBtn) {
 // SPA Navigation (Mobile App Bottom Nav)
 if (navHome) {
     navHome.addEventListener("click", () => {
+        if (storeView.classList.contains("active")) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return; // Stop the rest of the function from running
+        }
         cartView.classList.remove("active");
         cartView.classList.add("hidden");
         storeView.classList.remove("hidden");
